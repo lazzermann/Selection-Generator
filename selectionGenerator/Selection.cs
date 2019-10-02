@@ -23,6 +23,11 @@ namespace selectionGenerator
             Console.WriteLine();
         }
 
+        public void showSelection() {
+            foreach (double val in selection) { Console.Write(val + " "); }
+            Console.WriteLine();
+        }
+
         public bool seriesCriterion() {
             String result = "";
             List<double> buffer = new List<double>();
@@ -67,13 +72,13 @@ namespace selectionGenerator
             Console.WriteLine(getSeriesCount(result.ToCharArray()) + " > " + Math.Round((selection.Count + 1 - (1.96 * Math.Sqrt(selection.Count - 1))) / 2));
 
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("T(n) < ln(n+1) : ");
+            Console.Write("T(n) < 3,33 * ln(n+1) : ");
             Console.ResetColor();
-            Console.WriteLine(getMaxSeriesLenth(result.ToCharArray()) + " < " + Math.Round(Math.Log(selection.Count + 1)));
+            Console.WriteLine(getMaxSeriesLenth(result.ToCharArray()) + " < " + Math.Round(3.33 * Math.Log(selection.Count + 1)));
 
             if (getSeriesCount(result.ToCharArray()) > Math.Round((selection.Count + 1 - (1.96 * Math.Sqrt(selection.Count - 1))) / 2))
             {
-                if (getMaxSeriesLenth(result.ToCharArray()) < Math.Round(Math.Log(selection.Count + 1)))
+                if (getMaxSeriesLenth(result.ToCharArray()) < Math.Round(3.33 * Math.Log(selection.Count + 1)))
                     return true;
             }
 
@@ -92,6 +97,7 @@ namespace selectionGenerator
                     result += "-"; //x(i + 1) < x(i) 
             }
 
+            showSelection();
             Console.WriteLine(result);
 
             Console.Write("Series quantity : ");
