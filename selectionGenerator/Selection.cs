@@ -140,6 +140,18 @@ namespace selectionGenerator
 
             return false;
         }
+
+        public string[] ToStringArray()
+        {
+            string[] array = new string[selection.Count];
+            for (int i = 0; i < selection.Count; i++)
+            {
+                array[i] = selection.ElementAt(i).ToString();
+            }
+
+            return array;
+        }
+
         private int getSeriesCount(char[] res) {
             char buf = res[0];
             int cnt = 1;
