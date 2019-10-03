@@ -152,6 +152,19 @@ namespace selectionGenerator
             return array;
         }
 
+        public void AddFromStringArray(string[] array)
+        {
+            try
+            {
+                foreach (var str in array)
+                    selection.Add(Convert.ToDouble(str));
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         private int getSeriesCount(char[] res) {
             char buf = res[0];
             int cnt = 1;
