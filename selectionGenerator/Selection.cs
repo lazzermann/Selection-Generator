@@ -13,6 +13,10 @@ namespace selectionGenerator
         private const int firstLimitationOfAscendingDescendingCriterionFormula = 5;
         private const int secondLimitationOfAscendingDescendingCriterionFormula = 6;
         private const int thirdLimitationOfAscendingDescendingCriterionFormula = 7;
+        
+        private const long m = 68719476736;
+        private const long M = 30517578125;
+        private const double minusM = 1.4551915e-11;
 
         public Selection() { selection = new List<double>(); }
 
@@ -150,6 +154,25 @@ namespace selectionGenerator
             }
 
             return array;
+        }
+
+        public double[] GeneratePrimarySelection(int len)
+        {
+
+            double[] arr = new double[len];
+            arr[0] = 500000000;
+
+            for (int i = 1; i < len; i++)
+            {
+                arr[i] = (arr[i - 1] * M) % m;
+            }
+
+            for (int i = 0; i < len; i++)
+            {
+                arr[i] *= minusM;
+            }
+
+            return arr;
         }
 
         public void AddFromStringArray(string[] array)
