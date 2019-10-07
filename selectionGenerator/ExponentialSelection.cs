@@ -18,6 +18,7 @@ namespace selectionGenerator
 
             int n = 1;
             double value = 0;
+            double[] primeSelection;
 
             Console.WriteLine("Input the count of numbers in selection");
             n = Convert.ToInt32(Console.ReadLine());
@@ -25,8 +26,10 @@ namespace selectionGenerator
             Console.WriteLine("Input the dumping value");
             damping = Convert.ToInt32(Console.ReadLine());
 
+            primeSelection = GeneratePrimarySelection(n);
+
             for (int i = 0; i < n; i++) {
-                value = -1 * (Math.Log(1 - nue.NextDouble()) / damping);
+                value = -1 * (Math.Log(1 - primeSelection[i]) / damping);
                 selection.Add(Math.Round(value, 3));
             }
         }

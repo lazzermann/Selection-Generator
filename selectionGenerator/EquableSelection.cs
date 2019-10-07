@@ -15,17 +15,21 @@ namespace selectionGenerator
 
             int n = 1; 
             double value = 0;
+            double[] primeSelection;
 
             Console.WriteLine("Input the count of numbers in selection");
             n = Convert.ToInt32(Console.ReadLine());
 
+            primeSelection = GeneratePrimarySelection(n);
+
             Console.WriteLine("Input the left and right border of interval");
+
             leftBorder = Convert.ToInt32(Console.ReadLine());
             rightBorder = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < n; i++) {
-                value = leftBorder + (rightBorder - leftBorder) * nue.NextDouble();
-                selection.Add(Math.Round(value,2));
+                value = leftBorder + (rightBorder - leftBorder) * primeSelection[i];
+                selection.Add(Math.Round(value,3));
             }
         }
     }
