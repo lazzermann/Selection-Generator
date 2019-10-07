@@ -13,10 +13,12 @@ namespace selectionGenerator
         private const int firstLimitationOfAscendingDescendingCriterionFormula = 5;
         private const int secondLimitationOfAscendingDescendingCriterionFormula = 6;
         private const int thirdLimitationOfAscendingDescendingCriterionFormula = 7;
+       
         
         private const long m = 68719476736;
         private const long M = 30517578125;
         private const double minusM = 1.4551915e-11;
+        private const double studentCriterionTableValue = 1.2901;
 
         public Selection() { selection = new List<double>(); }
 
@@ -26,6 +28,8 @@ namespace selectionGenerator
             foreach (double val in selec) { Console.Write(val + " "); }
             Console.WriteLine();
         }
+
+        public void showCount() { Console.WriteLine("Numbs: " + selection.Count); }
 
         public void showSelection() {
             foreach (double val in selection) { Console.Write(val + " "); }
@@ -186,6 +190,32 @@ namespace selectionGenerator
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public void studentCriterion() {
+            double mat = mathWaiting();
+            double sqrtdisp = sqrtDispesion();
+
+            if((selection.Max() - mat / sqrtdisp)  > studentCriterionTableValue) //T(0.80, 100)
+                selection.Remove(selection.Max());
+            
+            if ((mat - selection.Min() / sqrtdisp) > studentCriterionTableValue) //T(0.80, 100)
+                selection.Remove(selection.Min());
+        }
+
+        public void addTwent() { selection.Add(1000000); }
+        private double mathWaiting()
+        {
+            return selection.Average();
+        }
+        private double dispersion()
+        {
+            double mat = mathWaiting();
+            return selection.Sum(a => (a - mat) * (a - mat)) / (selection.Count - 1);
+        }
+        private double sqrtDispesion()
+        {
+            return Math.Sqrt(dispersion());
         }
 
         private int getSeriesCount(char[] res) {
