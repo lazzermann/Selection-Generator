@@ -19,24 +19,24 @@ namespace EMPI
                 using (StreamWriter stream =File.AppendText("Selections.txt")) {
 
                     if (sel.GetType() == typeof(EquableSelection)) {
-                        stream.WriteLine('1');
+                        stream.WriteLine("EquableSelection");
                         foreach (var line in lines)
-                            stream.Write(line + " ");
-                        stream.WriteLine();
+                            stream.WriteLine(line);
+                        stream.WriteLine("end");
                     }
 
                     if (sel.GetType() == typeof(ExponentialSelection)) {
-                        stream.WriteLine('2');
+                        stream.WriteLine("ExponentialSelection");
                         foreach (var line in lines)
-                            stream.Write(line + " ");
-                        stream.WriteLine();
+                            stream.WriteLine(line);
+                        stream.WriteLine("end");
                     }
 
                     if (sel.GetType() == typeof(NormalSelection)) {
-                        stream.WriteLine('3');
+                        stream.WriteLine("NormalSelection");
                         foreach (var line in lines)
-                            stream.Write(line + " ");
-                        stream.WriteLine();
+                            stream.WriteLine(line);
+                        stream.WriteLine("end");
                     }
                     stream.Close();
                 }
@@ -51,54 +51,73 @@ namespace EMPI
             string line;
             string[] array = new string[10000];
             bool isRight = false;
+            int cnt = 0;
 
             try {
                 using (StreamReader reader = new StreamReader("Selections.txt"))
                 {
                     while ((line = reader.ReadLine()) != null)
                     {
-
-                        if (line.Length == 1) {
-
-                            if (sel.GetType() == typeof(EquableSelection) && line == "1")
+                            if (sel.GetType() == typeof(EquableSelection) && line == "EquableSelection")
                             {
+
                                 line = reader.ReadLine();
-                                array = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                                while (line != "end")
+                                {
+                                    array[cnt] = line;
+                                    cnt++;
+                                line = reader.ReadLine();
+                                }
 
-                                isRight = true;
+                            array = array.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+                            isRight = true;
 
-                                break;
+                            break;
                             }
 
-                            if (sel.GetType() == typeof(ExponentialSelection) && line == "2")
+                            if (sel.GetType() == typeof(ExponentialSelection) && line == "ExponentialSelection")
                             {
                                 line = reader.ReadLine();
-                                array = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                                isRight = true;
-
-                                break;
-                            }
-                            if (sel.GetType() == typeof(NormalSelection) && line == "3")
-                            {
+                                while (line != "end") {
+                                
+                                array[cnt] = line;
+                                cnt++;
                                 line = reader.ReadLine();
-                                array = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                               }
 
-                                isRight = true;
+                            array = array.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+                            isRight = true;
 
-                                break;
+                            break;
                             }
-                        }
+
+                            if (sel.GetType() == typeof(NormalSelection) && line == "NormalSelection")
+                            {
+                               
+                            line = reader.ReadLine();
+                            while (line != "end")
+                            {
+                                array[cnt] = line;
+                                cnt++;
+                                line = reader.ReadLine();
+                            }
+
+                            array = array.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+                            isRight = true;
+
+                            break;
+                            }
                     }
 
                     if (isRight)
                     {
                         sel.AddFromStringArray(array);
+                        reader.Close();
                         return;
                     }
 
                     Console.WriteLine("This type of selection in file dont exsits");
-                    
+                    reader.Close();
                 }
             }
 
