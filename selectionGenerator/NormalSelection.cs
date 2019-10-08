@@ -8,34 +8,38 @@ namespace selectionGenerator
 {
     class NormalSelection : Selection
     {
-        private int a { get; set; }
-        private int sigma { get; set; }
+        private double a { get; set; }
+        private double sigma { get; set; }
         public NormalSelection() : base() { }
 
         public override void generateSelection()
         {
             Random randa = new Random();
-            double doubleSum = 0;
+            //double[] arr;
+            double value = 1;
 
             int n = 1;
+
+            
 
             Console.WriteLine("Input the cout of elements");
             n = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Input left limit of interval");
-            a = Convert.ToInt32(Console.ReadLine());
+            //arr = GetNormalPrimarySelection(n);
 
-            Console.WriteLine("Input right limit of interval");
-            sigma = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input math waiting");
+            a = Convert.ToDouble(Console.ReadLine());
 
-            for (int i = 0; i < n; i++) {
-                doubleSum = 0;
-                for (int j = 0; j <= 12; j++) {
-                    doubleSum += randa.NextDouble();
-                }
-                selection.Add(Math.Round((a + Math.Pow(sigma, 2) * (doubleSum - 6)), 3)); //N(a,sigma^2)
+            Console.WriteLine("Input standart deviation");
+            sigma = Convert.ToDouble(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                value = Math.Cos(2 * Math.PI * randa.NextDouble())*Math.Sqrt(-2*Math.Log(randa.NextDouble()));
+                selection.Add(Math.Round((a + sigma * value), 3)); //N(a,sigma^2)
             }
 
         }
+
     }
 }
