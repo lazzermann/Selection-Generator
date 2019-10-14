@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EMPI
 {
-    class SelectionFileWriterReader
+   public class SelectionFileWriterReader
     {
 
          public void writeSelectionToFile(Selection sel) {

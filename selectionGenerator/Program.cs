@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EMPI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,23 @@ namespace selectionGenerator
     {
         static void Main(string[] args)
         {
-            Selection selec = new EquableSelection();
+            SelectionFileWriterReader reader = new SelectionFileWriterReader();
+            Selection selec = new NormalSelection();
             selec.generateSelection();
-            Console.WriteLine(selec.seriesCriterion());
+
+            //selec.seriesCriterion();
+            //selec.ascendingDescendingSeriesCriterion();
+
+            reader.writeSelectionToFile(selec);
+            //reader.readSelectionFromFile(selec);
+
+            selec.showSelection();
+            selec.studentCriterion();
+            selec.showSelection();
+            selec.showCount();
+            selec.studentCriterion();
+            selec.showCount();
+            selec.showSelection();
         }
     }
 }

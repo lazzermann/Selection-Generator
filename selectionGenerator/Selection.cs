@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace selectionGenerator
 {
-    abstract class Selection
+    public abstract class Selection
     {
-        protected List<double> selection;
+        public List<double> selection;
 
         private const int firstLimitationOfAscendingDescendingCriterionFormula = 5;
         private const int secondLimitationOfAscendingDescendingCriterionFormula = 6;
@@ -18,7 +18,7 @@ namespace selectionGenerator
         private const long m = 68719476736;
         private const long M = 30517578125;
         private const double minusM = 1.4551915e-11;
-        private const double studentCriterionTableValue = 1.2901;
+        private const double studentCriterionTableValue = 1.984; //(a = 0.05,100)
 
         public Selection() { selection = new List<double>(); }
 
@@ -160,6 +160,15 @@ namespace selectionGenerator
             return array;
         }
 
+        public double[] ToDoubleArray() 
+        {
+            double[] array = new double[selection.Count];
+            for (int i = 0; i < selection.Count; i++) {
+                array[i] = selection.ElementAt(i);
+            }
+            return array;
+        }
+
         public double[] GeneratePrimarySelection(int len)
         {
 
@@ -196,29 +205,29 @@ namespace selectionGenerator
             double mat = mathWaiting();
             double sqrtdisp = sqrtDispesion();
 
-            if((selection.Max() - mat / sqrtdisp)  > studentCriterionTableValue) //T(0.80, 100)
+            if((selection.Max() - mat / sqrtdisp)  > studentCriterionTableValue) //T(0.05, 100)
                 selection.Remove(selection.Max());
             
-            if ((mat - selection.Min() / sqrtdisp) > studentCriterionTableValue) //T(0.80, 100)
+            if ((mat - selection.Min() / sqrtdisp) > studentCriterionTableValue) //T(0.05, 100)
                 selection.Remove(selection.Min());
         }
 
         public void addTwent() { selection.Add(1000000); }
-        private double mathWaiting()
+        public double mathWaiting()
         {
             return selection.Average();
         }
-        private double dispersion()
+        public double dispersion()
         {
             double mat = mathWaiting();
             return selection.Sum(a => (a - mat) * (a - mat)) / (selection.Count - 1);
         }
-        private double sqrtDispesion()
+        public double sqrtDispesion()
         {
             return Math.Sqrt(dispersion());
         }
 
-        private int getSeriesCount(char[] res) {
+        public int getSeriesCount(char[] res) {
             char buf = res[0];
             int cnt = 1;
             for (int i = 0; i < res.Length; i++) {
@@ -227,7 +236,7 @@ namespace selectionGenerator
             return cnt;
         }
 
-        private int getMaxSeriesLenth(char[] res) {
+        public int getMaxSeriesLenth(char[] res) {
             int max = 0, cnt = 0;
             char buf = res[0];
             for(int i = 0; i < res.Length; i++) {

@@ -2,7 +2,7 @@
 
 namespace selectionGenerator
 {
-    class EquableSelection : Selection
+    public class EquableSelection : Selection
     {
         private int leftBorder { get; set; }
         private int rightBorder{get; set;}
@@ -29,7 +29,7 @@ namespace selectionGenerator
 
             for (int i = 0; i < n; i++) {
                 value = leftBorder + (rightBorder - leftBorder) * primeSelection[i];
-                selection.Add(Math.Round(value,3));
+                selection.Add(Math.Round(value,2));
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace selectionGenerator
 {
-    class ExponentialSelection : Selection
+   public class ExponentialSelection : Selection
     {
         private int damping { get; set; }
 
@@ -30,7 +30,7 @@ namespace selectionGenerator
 
             for (int i = 0; i < n; i++) {
                 value = -1 * (Math.Log(1 - primeSelection[i]) / damping);
-                selection.Add(Math.Round(value, 3));
+                selection.Add(Math.Round(value, 2));
             }
         }
     }
