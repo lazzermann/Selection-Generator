@@ -39,7 +39,6 @@
             this.minElemBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.elemBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.equableSelecRadio = new System.Windows.Forms.RadioButton();
             this.exponentSelecRadio = new System.Windows.Forms.RadioButton();
@@ -60,6 +59,7 @@
             this.StudentCriterionMin = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.StudentCriterionButton = new System.Windows.Forms.Button();
+            this.elemBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectionChart)).BeginInit();
             this.SuspendLayout();
@@ -115,13 +115,6 @@
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Min elem";
-            // 
-            // elemBox
-            // 
-            this.elemBox.Location = new System.Drawing.Point(177, 351);
-            this.elemBox.Name = "elemBox";
-            this.elemBox.Size = new System.Drawing.Size(525, 20);
-            this.elemBox.TabIndex = 6;
             // 
             // groupBox1
             // 
@@ -326,11 +319,20 @@
             this.StudentCriterionButton.UseVisualStyleBackColor = true;
             this.StudentCriterionButton.Click += new System.EventHandler(this.StudentCriterionButton_Click);
             // 
+            // elemBox
+            // 
+            this.elemBox.Location = new System.Drawing.Point(177, 333);
+            this.elemBox.Name = "elemBox";
+            this.elemBox.Size = new System.Drawing.Size(405, 105);
+            this.elemBox.TabIndex = 24;
+            this.elemBox.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.elemBox);
             this.Controls.Add(this.StudentCriterionButton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.StudentCriterionMin);
@@ -348,7 +350,6 @@
             this.Controls.Add(this.selectCountBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.elemBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.minElemBox);
@@ -373,7 +374,6 @@
         private System.Windows.Forms.TextBox minElemBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox elemBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton equableSelecRadio;
         private System.Windows.Forms.RadioButton exponentSelecRadio;
@@ -394,6 +394,7 @@
         private System.Windows.Forms.TextBox StudentCriterionMin;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button StudentCriterionButton;
+        private System.Windows.Forms.RichTextBox elemBox;
     }
 }
 

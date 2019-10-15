@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 9);
+            this.label1.Location = new System.Drawing.Point(47, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 3;
@@ -58,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 159);
+            this.label2.Location = new System.Drawing.Point(47, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 4;
@@ -83,7 +83,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 296);
+            this.label4.Location = new System.Drawing.Point(47, 297);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 7;
@@ -161,26 +161,26 @@
             // 
             // resultTextBox
             // 
-            this.resultTextBox.Location = new System.Drawing.Point(50, 334);
+            this.resultTextBox.Location = new System.Drawing.Point(50, 324);
             this.resultTextBox.Name = "resultTextBox";
-            this.resultTextBox.Size = new System.Drawing.Size(387, 87);
+            this.resultTextBox.Size = new System.Drawing.Size(424, 114);
             this.resultTextBox.TabIndex = 16;
             this.resultTextBox.Text = "";
             this.resultTextBox.ZoomFactor = 1.25F;
             // 
             // sortTextBox
             // 
-            this.sortTextBox.Location = new System.Drawing.Point(50, 197);
+            this.sortTextBox.Location = new System.Drawing.Point(50, 166);
             this.sortTextBox.Name = "sortTextBox";
-            this.sortTextBox.Size = new System.Drawing.Size(387, 82);
+            this.sortTextBox.Size = new System.Drawing.Size(424, 109);
             this.sortTextBox.TabIndex = 17;
             this.sortTextBox.Text = "";
             // 
             // originTextBox
             // 
-            this.originTextBox.Location = new System.Drawing.Point(56, 29);
+            this.originTextBox.Location = new System.Drawing.Point(50, 29);
             this.originTextBox.Name = "originTextBox";
-            this.originTextBox.Size = new System.Drawing.Size(381, 107);
+            this.originTextBox.Size = new System.Drawing.Size(424, 116);
             this.originTextBox.TabIndex = 18;
             this.originTextBox.Text = "";
             // 
