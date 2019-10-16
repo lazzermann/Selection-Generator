@@ -201,15 +201,22 @@ namespace selectionGenerator
             }
         }
 
+        //T(0.05, 100)
         public void studentCriterion() {
             double mat = mathWaiting();
             double sqrtdisp = sqrtDispesion();
 
-            if((selection.Max() - mat / sqrtdisp)  > studentCriterionTableValue) //T(0.05, 100)
-                selection.Remove(selection.Max());
-            
-            if ((mat - selection.Min() / sqrtdisp) > studentCriterionTableValue) //T(0.05, 100)
-                selection.Remove(selection.Min());
+            if ((selection.Max() - mat / sqrtdisp) > studentCriterionTableValue)
+            {
+                selection.RemoveAt(selection.IndexOf(selection.Max()));
+                selection.Insert(selection.IndexOf(selection.Max()), mat);
+            }
+
+            if ((mat - selection.Min() / sqrtdisp) > studentCriterionTableValue)
+            {
+                selection.RemoveAt(selection.IndexOf(selection.Min()));
+                selection.Insert(selection.IndexOf(selection.Min()), mat);
+            }
         }
 
         public void addTwent() { selection.Add(1000000); }
