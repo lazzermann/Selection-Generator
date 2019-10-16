@@ -33,6 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.selecGenButton = new System.Windows.Forms.Button();
             this.findExsistButton = new System.Windows.Forms.Button();
             this.maxElemBox = new System.Windows.Forms.TextBox();
@@ -222,9 +223,16 @@
             series3.MarkerSize = 3;
             series3.Name = "ExponentalSelection";
             series3.YValuesPerPoint = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series4.Color = System.Drawing.Color.Magenta;
+            series4.Legend = "Legend1";
+            series4.MarkerSize = 6;
+            series4.Name = "MathWaiting";
             this.selectionChart.Series.Add(series1);
             this.selectionChart.Series.Add(series2);
             this.selectionChart.Series.Add(series3);
+            this.selectionChart.Series.Add(series4);
             this.selectionChart.Size = new System.Drawing.Size(594, 192);
             this.selectionChart.TabIndex = 12;
             this.selectionChart.Text = "Series Chart";

@@ -31,10 +31,12 @@ namespace selectionChart
                 for (int i = 0; i < select.selection.Count; i++) {
                     selectionChart.Series["NormalSelection"].Points.AddXY(i+1, select.selection.ElementAt(i));
                 }
-                selectionChart.Series["NormalSelection"].Points.AddXY(-1, select.mathWaiting());
+                //selectionChart.Series["NormalSelection"].Points.AddXY(-1, select.mathWaiting());
+                selectionChart.Series["MathWaiting"].Points.AddXY(-1, select.mathWaiting());
+
             }
 
-        
+
             if (equableSelecRadio.Checked)
             {
                 select = new EquableSelection();
@@ -48,7 +50,8 @@ namespace selectionChart
                 {
                     selectionChart.Series["EquableSelection"].Points.AddXY(i + 1, select.selection.ElementAt(i));
                 }
-                selectionChart.Series["EquableSelection"].Points.AddXY(-1, select.mathWaiting());
+                //selectionChart.Series["EquableSelection"].Points.AddXY(-1, select.mathWaiting());
+                selectionChart.Series["MathWaiting"].Points.AddXY(-1, select.mathWaiting());
             }
 
             if (exponentSelecRadio.Checked)
@@ -65,7 +68,8 @@ namespace selectionChart
                 {
                     selectionChart.Series["ExponentalSelection"].Points.AddXY(i + 1, select.selection.ElementAt(i));
                 }
-                selectionChart.Series["ExponentalSelection"].Points.AddXY(-1, select.mathWaiting());
+                //selectionChart.Series["ExponentalSelection"].Points.AddXY(-1, select.mathWaiting());
+                selectionChart.Series["MathWaiting"].Points.AddXY(-1, select.mathWaiting());
             }
         }
 
@@ -138,6 +142,7 @@ namespace selectionChart
             selectionChart.Series["ExponentalSelection"].Points.Clear();
             selectionChart.Series["EquableSelection"].Points.Clear();
             selectionChart.Series["NormalSelection"].Points.Clear();
+            selectionChart.Series["MathWaiting"].Points.Clear();
         }
         private void findExsistButton_Click(object sender, EventArgs e)
         {
@@ -172,7 +177,8 @@ namespace selectionChart
                     {
                         selectionChart.Series["NormalSelection"].Points.AddXY(i + 1, select.selection.ElementAt(i));
                     }
-                    selectionChart.Series["NormalSelection"].Points.AddXY(-1, select.mathWaiting());
+                    //selectionChart.Series["NormalSelection"].Points.AddXY(-1, select.mathWaiting());
+                    selectionChart.Series["MathWaiting"].Points.AddXY(-1, select.mathWaiting());
                 }
 
                 if(select.GetType() == typeof(EquableSelection))
@@ -182,7 +188,8 @@ namespace selectionChart
                     {
                         selectionChart.Series["EquableSelection"].Points.AddXY(i + 1, select.selection.ElementAt(i));
                     }
-                    selectionChart.Series["EquableSelection"].Points.AddXY(-1, select.mathWaiting());
+                    //selectionChart.Series["EquableSelection"].Points.AddXY(-1, select.mathWaiting());
+                    selectionChart.Series["MathWaiting"].Points.AddXY(-1, select.mathWaiting());
                 }
 
                 if(select.GetType() == typeof(ExponentialSelection))
@@ -192,7 +199,8 @@ namespace selectionChart
                     {
                         selectionChart.Series["ExponentalSelection"].Points.AddXY(i + 1, select.selection.ElementAt(i));
                     }
-                    selectionChart.Series["ExponentalSelection"].Points.AddXY(-1, select.mathWaiting());
+                    //selectionChart.Series["ExponentalSelection"].Points.AddXY(-1, select.mathWaiting());
+                    selectionChart.Series["MathWaiting"].Points.AddXY(-1, select.mathWaiting());
                 }
             }
             
@@ -213,7 +221,8 @@ namespace selectionChart
             {
                 selectionChart.Series["NormalSelection"].Points.AddXY(i + 1, select.selection.ElementAt(i));
             }
-            selectionChart.Series["NormalSelection"].Points.AddXY(-1, select.mathWaiting());
+            //selectionChart.Series["NormalSelection"].Points.AddXY(-1, select.mathWaiting());
+            selectionChart.Series["MathWaiting"].Points.AddXY(-1, select.mathWaiting());
         }
 
         private void writeSelectionButton_Click(object sender, EventArgs e)
